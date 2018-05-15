@@ -27,8 +27,7 @@ var handlers = {
     var intent_context= this
     console.log("inside custom intent")
     getData().then(function() {
-      //Task 3: Replace the hard-coded speech0utput. Call the 'getData' function to get the response back.
-      var speechOutput = "Hi, Alexa has reached your custom intent";
+      //Task 4: Handle the response from the promise returned from getData. After doing this, Alexa will wait for response before saying anything
       intent_context.response.speak(speechOutput).listen(speechOutput);
       intent_context.emit(':responseReady');
     })
@@ -44,5 +43,8 @@ var handlers = {
 
 var getData = function() {
   console.log("inside get data")
+  var speechOutput= "Hi, Alexa has reached your getData function"
+  //Task 4: Instead of returning a hard coded string, make an http request to the URL you were given to retrieve the data.
+
 return speechOutput
 }

@@ -16,7 +16,9 @@ exports.handler = function (event, context, callback) {
 var handlers = {
   'LaunchRequest': function () {
     console.log("inside of LaunchRequest");
-    //Task 2: Write the welcome message for your Alexa Skill here
+   var speechOutput = "Hello from NASA!";
+   this.response.speak(speechOutput).listen(speechOutput);
+   this.emit(':responseReady');
 
   },
 
@@ -24,19 +26,23 @@ var handlers = {
   'GetAPOD': function () {
     var intent_context= this
     console.log("inside custom intent")
-    //Task 2: Write the intent message here. For now, this will be a hard-coded string that she will respond back to us with.
-
+    getData().then(function() {
+      //Task 3: Replace the hard-coded speech0utput. Call the 'getData' function to get the response back.
+      var speechOutput = "Hi, Alexa has reached your custom intent";
+      intent_context.response.speak(speechOutput).listen(speechOutput);
+      intent_context.emit(':responseReady');
+    })
 },
 
   'Unhandled': function (){
     console.log("inside of unhandled");
-    //Task 2: Write the unhandled message here. This will be what Alexa responds when she doesn't understand the intent request.
-
+    var speechOutput = "I didn't understand that.  Please try again";
+    this.response.speak(speechOutput).listen(speechOutput);
+    this.emit(':responseReady');
   }
 };
 
 var getData = function() {
   console.log("inside get data")
-
-return "Hard-coded message from Get Data"
+return speechOutput
 }

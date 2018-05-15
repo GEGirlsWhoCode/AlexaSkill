@@ -20,7 +20,7 @@ var handlers = {
   },
 
   //Entering our custom intent
-  //Task 1: Replacr <your-intent> with the intent you created through Alexa
+  //Task 1: Replace <your-intent> with the intent you created through Alexa
   '<your-intent>': function () {
     var intent_context= this
     console.log("inside custom intent")

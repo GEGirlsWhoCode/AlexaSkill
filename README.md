@@ -5,8 +5,8 @@ Creating an Alexa fact-finding skill. This project walks through implementing an
 To implement this skill, it is assumed that you have:
  
  1. Created the skill on the Amazon Developer Portal
- 2. Created the AWS Lambda function. 
- 3. Linked the skill to the Lambda function.
+ 2. Created the AWS Lambda function
+ 3. Linked the skill to the Lambda function
 
 ## Tasks
 After completing the prerequisites, follow the steps below to implement your Alexa Fact-Finding Skill!
@@ -29,7 +29,7 @@ this.emit(':responseReady');
 ```
 
 ### Task 3
-Alright, at this point the Alexa skill should greet you when you invoke it and should handle situations where you would ask it for more information or where you would ask it to do something outside of it's skill level. Let's change the hard-coded speech output in your custom intent handler so that it call another function that responds with a message instead. For now, let's keep this simple - create a function outside of the handlers that prints to the console and returns a different hard coded string.
+Alright, at this point the Alexa skill should greet you when you invoke it and should handle situations where you would ask it for more information or where you would ask it to do something outside of it's skill level. Let's change the hard-coded speech output in your custom intent handler so that it calls another function that responds with a message instead. For now, let's keep this simple - create a function outside of the handlers that prints to the console and returns a different hard coded string.
 
 ### Task 4
 The last step! Let's make an API call. Instead of returning hard-coded speech output, let's get information back *dynamically*.

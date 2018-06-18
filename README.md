@@ -4,7 +4,7 @@ Creating an Alexa fact-finding skill. This project walks through implementing an
 ## Prerequisites
 To implement this skill, it is assumed that you have:
  
- 1. Created the skill on the Amazon Developer Portal
+ 1. Created the skill on the Amazon Developer Portal https://developer.amazon.com/alexa/console/ask
  2. Created the AWS Lambda function
  3. Linked the skill to the Lambda function
 

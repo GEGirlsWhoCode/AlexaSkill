@@ -21,7 +21,7 @@ var handlers = {
 
   //Entering our custom intent
   //Task 1: Replace <your-intent> with the intent you created through Alexa
-  '<your-intent>': function () {
+  'GetData': function () {
     var intent_context= this
     console.log("inside custom intent")
 

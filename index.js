@@ -1,62 +1,71 @@
-'use strict';
+''use strict';
 //Required node packages
 var alexa = require('./node_modules/alexa-sdk');
 var request = require('request');
 
-//this is the handler, when the lambda is invoked, this is whats called
+//this is the handler, when the lambda is invoked, this is what is called
 exports.handler = function (event, context, callback) {
   var skill = alexa.handler(event, context);
-  
-  skill.appId = 'amzn1.ask.skill.b0c22d7c-e50e-4aaf-9322-1c577dca2770';
+
+//Task 1: Add your app ID from Alexa
+  skill.appId = 'amzn1.ask.skill.9b1b227b-32be-47c3-8078-b3a48b8c3b57';
   skill.registerHandlers(handlers);
   skill.execute();
 };
 
-//Alexa handlers
+//List of Alexa handlers
 var handlers = {
   'LaunchRequest': function () {
     console.log("inside of LaunchRequest");
-    var speechOutput = "Hello from NASA!";
-    this.response.speak(speechOutput).listen(speechOutput);
+    var speech0utput = "Welcome to Kelly's Skill"
+    this.response.speak(speech0utput).listen(speech0utput);
     this.emit(':responseReady');
   },
-  
-  //Entering our main intent
-  'GetAPOD': function () {
-    var intent_context= this
-    getData().then(function(body) {
-      var speechOutput = body.explanation;
-      intent_context.response.speak(speechOutput).listen(speechOutput);
+
+  //Entering our custom intent
+  //Task 1: Replace <your-intent> with the intent you created through Alexa
+  'GetData': function () {
+    var intent_context = this
+    console.log("inside custom intent GetData")
+    returnFact().then(function (body) {
+      var speech0utput = body.results[0].trackName
+      intent_context.response.speak(speech0utput).listen(speech0utput);
+      intent_context.emit(':responseReady');
+    },function (error) {
+      console.log("You have an error in GetData")
+      var speech0utput = "Sorry your API returned an error"
+      intent_context.response.speak(speech0utput).listen(speech0utput);
       intent_context.emit(':responseReady');
     })
-},
-  
+  },
+
   'Unhandled': function (){
     console.log("inside of unhandled");
-    var speechOutput = "I didn't understand that.  Please try again";
-    this.response.speak(speechOutput).listen(speechOutput);
+    var speech0utput = "There was an error"
+    this.response.speak(speech0utput).listen(speech0utput);
     this.emit(':responseReady');
-    
+
   }
 };
 
-var getData = function() {
-  var url = "https://api.nasa.gov/planetary/apod?api_key=R5qhAo9JxPvanhFNKIJz1ppc7Ll6paPsEP40atAs"
-  console.log("inside get data")
+var returnFact = function() {
+  var url = "https://itunes.apple.com/search?term=maroon+5&limit=1"
+  console.log("inside returnFact")
 
-  return new Promise(function(resolve, reject) {
-    request.get(url, function(error, response,body) {
-      if (error) {
-        console.log(error)
-        reject(error)
-
-      } 
+  return new Promise (function(resolve, reject){
+    request.get(url, function (error, response, body){
       if (body) {
         console.log(body)
-        resolve(JSON.parse(body));
+        resolve (JSON.parse(body))
       }
+
+      if (error) {
+        console.log(error)
+        reject (error)
+      }
+
     })
+
   });
 
-  return "outside request"
 }

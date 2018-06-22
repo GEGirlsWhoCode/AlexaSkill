@@ -7,7 +7,8 @@ var request = require('request');
 exports.handler = function (event, context, callback) {
   var skill = alexa.handler(event, context);
 
-  skill.appId = 'amzn1.ask.skill.b0c22d7c-e50e-4aaf-9322-1c577dca2770';
+//Task 1: Add your app ID from Alexa
+  skill.appId = 'amzn1.ask.skill.9b1b227b-32be-47c3-8078-b3a48b8c3b57';
   skill.registerHandlers(handlers);
   skill.execute();
 };
@@ -16,35 +17,31 @@ exports.handler = function (event, context, callback) {
 var handlers = {
   'LaunchRequest': function () {
     console.log("inside of LaunchRequest");
-   var speechOutput = "Hello from NASA!";
-   this.response.speak(speechOutput).listen(speechOutput);
-   this.emit(':responseReady');
-
+    var speech0utput = "Welcome to Kelly's Skill"
+    this.response.speak(speech0utput).listen(speech0utput);
+    this.emit(':responseReady');
   },
 
   //Entering our custom intent
-  'GetAPOD': function () {
-    var intent_context= this
+  //Task 1: Replace <your-intent> with the intent you created through Alexa
+  'GetData': function () {
     console.log("inside custom intent")
-    getData().then(function() {
-      //Task 4: Handle the response from the promise returned from getData. After doing this, Alexa will wait for response before saying anything
-      intent_context.response.speak(speechOutput).listen(speechOutput);
-      intent_context.emit(':responseReady');
-    })
+    var speech0utput = returnFact()
+    this.response.speak(speech0utput).listen(speech0utput);
+    this.emit(':responseReady');
 },
 
   'Unhandled': function (){
     console.log("inside of unhandled");
-    var speechOutput = "I didn't understand that.  Please try again";
-    this.response.speak(speechOutput).listen(speechOutput);
+    var speech0utput = "There was a problem"
+    this.response.speak(speech0utput).listen(speech0utput);
     this.emit(':responseReady');
+
   }
 };
 
-var getData = function() {
+var returnFact = function() {
   console.log("inside get data")
-  var speechOutput= "Hi, Alexa has reached your getData function"
-  //Task 4: Instead of returning a hard coded string, make an http request to the URL you were given to retrieve the data.
+  return "You've reached the returnFact function!"
 
-return speechOutput
 }

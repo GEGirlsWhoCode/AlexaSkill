@@ -26,8 +26,8 @@ var handlers = {
   'GetAPOD': function () {
     var intent_context= this
     console.log("inside custom intent")
-    getData().then(function() {
-      //Task 3: Replace the hard-coded speech0utput. Call the 'getData' function to get the response back.
+    returnFact().then(function() {
+      //Task 3: Replace the hard-coded speech0utput. Call the 'returnFact' function to get the response back.
       var speechOutput = "Hi, Alexa has reached your custom intent";
       intent_context.response.speak(speechOutput).listen(speechOutput);
       intent_context.emit(':responseReady');

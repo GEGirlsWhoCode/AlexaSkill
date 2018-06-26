@@ -62,7 +62,7 @@ Create the `returnFact` function:
 Your `GetData` handler should look like this:
 ```
 var returnFact = function() {
-  console.log("inside get data")
+  console.log("inside returnFact")
   return "another fact!"
 }
 ```

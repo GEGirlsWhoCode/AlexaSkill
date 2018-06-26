@@ -16,7 +16,7 @@ exports.handler = function (event, context, callback) {
 var handlers = {
   'LaunchRequest': function () {
     console.log("inside of LaunchRequest");
-   var speechOutput = "Hello from NASA!";
+   var speechOutput = "Hello welcome to your skill!";
    this.response.speak(speechOutput).listen(speechOutput);
    this.emit(':responseReady');
 

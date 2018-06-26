@@ -42,7 +42,7 @@ var handlers = {
   }
 };
 
-var getData = function() {
-  console.log("inside get data")
+var returnFact = function() {
+  console.log("inside returnFact")
 return speechOutput
 }

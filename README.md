@@ -22,8 +22,8 @@ After completing the prerequisites, follow the steps below to implement your Ale
 
 ### Task 1 - Alexa Skills Setup
 In this task, we'll add the custom app ID that was generated on the Amazon Developers Portal to your Alexa Skill. We'll also link the custom Intent you created to the Skill.
-1. Create the Alexa Skill through the Alexa Developer Console. Give your skill a unique name and invocation name. 
-2. Create a custom intent through the Developer Console. Call the intent `GetData` and give the intent an utterance, like "tell me something". 
+1. Create the Alexa Skill through the Alexa Developer Console. Our skill is going to have Alexa return a song. Give your skill a unique name and invocation name, something like "KellySkill". 
+2. Create a custom intent through the Developer Console. Call the intent `GetSong` and give the intent an utterance, like "what's my favorite song". 
 3. Setup the Alexa Skill Service on the AWS Console using Lambda. Create a function with a unique name and give it an existing role, 'GirlsWhoCode'.
 4. Setup a trigger for your Lambda function. 
 5. Link the Alexa skill to the service using the App Id ARN.  
@@ -41,8 +41,8 @@ There are three main Alexa handlers we'll be implementing. It is important to fi
 
 Note that there's one more thing we need to add to each handler so that Alexa will actually *say* the message and then *listen* for a response. This will need to be added to each handler - but do you know where in the handler these should be added?
 ```
-this.response.speak(speechOutput).listen(speechOutput);
-this.emit(':responseReady');
+intent_context.response.speak(speechOutput).listen(speechOutput);
+intent_context.emit(':responseReady');
 ```
 
 ### Task 3

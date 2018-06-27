@@ -26,7 +26,7 @@ var handlers = {
   'GetData': function () {
     var intent_context = this
     console.log("inside custom intent")
-    var speechOutput = returnFact()
+    var speechOutput =  "Inside of GetData"
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');
 },
@@ -38,8 +38,3 @@ var handlers = {
     this.emit(':responseReady');
   }
 };
-
-var returnFact = function() {
-  console.log("inside returnFact")
-  return "Another Fact!"
-}

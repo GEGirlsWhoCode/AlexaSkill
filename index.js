@@ -23,15 +23,12 @@ var handlers = {
   },
 
   //Entering our custom intent
-  'GetAPOD': function () {
-    var intent_context= this
+  'GetData': function () {
+    var intent_context = this
     console.log("inside custom intent")
-    returnFact().then(function() {
-      //Task 3: Replace the hard-coded speech0utput. Call the 'returnFact' function to get the response back.
-      var speechOutput = "Hi, Alexa has reached your custom intent";
-      intent_context.response.speak(speechOutput).listen(speechOutput);
-      intent_context.emit(':responseReady');
-    })
+    var speechOutput = returnFact()
+    intent_context.response.speak(speechOutput).listen(speechOutput);
+    intent_context.emit(':responseReady');
 },
 
   'Unhandled': function (){

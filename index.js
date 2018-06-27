@@ -32,8 +32,3 @@ var handlers = {
 
   }
 };
-
-var returnFact = function() {
-  console.log("inside return fact")
-
-}

@@ -15,20 +15,22 @@ exports.handler = function (event, context, callback) {
 //List of Alexa handlers
 var handlers = {
   'LaunchRequest': function () {
+    var intent_context = this
     console.log("inside of LaunchRequest");
     //Task 2: Write the welcome message for your Alexa Skill here
 
   },
 
   //Entering our custom intent
-  'GetData': function () {
-    var intent_context= this
+  'GetSong': function () {
+    var intent_context = this
     console.log("inside custom intent")
     //Task 2: Write the intent message here. For now, this will be a hard-coded string that she will respond back to us with.
 
 },
 
   'Unhandled': function (){
+    var intent_context = this
     console.log("inside of unhandled");
     //Task 2: Write the unhandled message here. This will be what Alexa responds when she doesn't understand the intent request.
 

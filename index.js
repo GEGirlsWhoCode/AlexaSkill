@@ -24,10 +24,10 @@ var handlers = {
   },
 
   //Entering our custom intent
-  'GetData': function () {
+  'GetSong': function () {
     var intent_context = this
-    console.log("inside GetData")
-    var speechOutput =  "Inside of GetData"
+    console.log("inside GetSong")
+    var speechOutput =  "Inside of GetSong"
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');
 },

@@ -34,9 +34,3 @@ var handlers = {
 
   }
 };
-
-var returnFact = function() {
-  console.log("inside returnFact")
-
-  return "Hard-coded message from Get Data"
-}

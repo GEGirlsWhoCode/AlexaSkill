@@ -44,5 +44,5 @@ var handlers = {
 
 var returnFact = function() {
   console.log("inside returnFact")
-return speechOutput
+  return "Another Fact!"
 }

@@ -26,7 +26,7 @@ var handlers = {
   //Task 1: Replace <your-intent> with the intent you created through Alexa
   'GetData': function () {
     var intent_context = this
-    console.log("inside custom intent GetData")
+    console.log("inside GetData")
     returnFact().then(function (body) {
       var speech0utput = body.results[0].trackName
       intent_context.response.speak(speech0utput).listen(speech0utput);

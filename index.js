@@ -21,7 +21,7 @@ var handlers = {
   },
 
   //Entering our custom intent
-  'GetAPOD': function () {
+  'GetData': function () {
     var intent_context= this
     console.log("inside custom intent")
     //Task 2: Write the intent message here. For now, this will be a hard-coded string that she will respond back to us with.
@@ -38,5 +38,5 @@ var handlers = {
 var returnFact = function() {
   console.log("inside returnFact")
 
-return "Hard-coded message from Get Data"
+  return "Hard-coded message from Get Data"
 }

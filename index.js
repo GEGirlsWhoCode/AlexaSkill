@@ -1,4 +1,4 @@
-''use strict';
+'use strict';
 //Required node packages
 var alexa = require('./node_modules/alexa-sdk');
 var request = require('request');

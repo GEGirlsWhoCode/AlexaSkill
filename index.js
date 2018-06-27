@@ -18,8 +18,8 @@ var handlers = {
     var intent_context = this
     console.log("inside of LaunchRequest");
    var speechOutput = "Hello welcome to your skill!";
-   this.response.speak(speechOutput).listen(speechOutput);
-   this.emit(':responseReady');
+   intent_context.response.speak(speechOutput).listen(speechOutput);
+   intent_context.emit(':responseReady');
 
   },
 
@@ -36,7 +36,7 @@ var handlers = {
     var intent_context = this
     console.log("inside of unhandled");
     var speechOutput = "I didn't understand that.  Please try again";
-    this.response.speak(speechOutput).listen(speechOutput);
-    this.emit(':responseReady');
+    intent_context.response.speak(speechOutput).listen(speechOutput);
+    intent_context.emit(':responseReady');
   }
 };

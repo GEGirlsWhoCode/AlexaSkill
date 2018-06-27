@@ -27,8 +27,8 @@ var handlers = {
   //Task 1: Replace <your-intent> with the intent you created through Alexa
   'GetSong': function () {
     var intent_context = this
-    console.log("inside GetData")
-    var speechOutput = returnFact()
+    console.log("inside GetSong")
+    var speechOutput = returnSong()
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');
 },

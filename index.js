@@ -7,7 +7,7 @@ var request = require('request');
 exports.handler = function (event, context, callback) {
   var skill = alexa.handler(event, context);
 
-  skill.appId = 'amzn1.ask.skill.b0c22d7c-e50e-4aaf-9322-1c577dca2770';
+  skill.appId = '<your app id>';
   skill.registerHandlers(handlers);
   skill.execute();
 };

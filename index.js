@@ -25,7 +25,7 @@ var handlers = {
   //Entering our custom intent
   //Task 1: Replace <your-intent> with the intent you created through Alexa
   'GetData': function () {
-    console.log("inside custom intent")
+    console.log("inside GetData")
     var speech0utput = returnFact()
     this.response.speak(speech0utput).listen(speech0utput);
     this.emit(':responseReady');

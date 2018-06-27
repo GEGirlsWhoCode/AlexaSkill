@@ -16,6 +16,7 @@ exports.handler = function (event, context, callback) {
 //List of Alexa handlers
 var handlers = {
   'LaunchRequest': function () {
+    var intent_context = this
     console.log("inside of LaunchRequest");
     var speechOutput = "Welcome to your skill"
     intent_context.response.speak(speechOutput).listen(speechOutput);
@@ -40,6 +41,7 @@ var handlers = {
   },
 
   'Unhandled': function (){
+    var intent_context = this
     console.log("inside of unhandled");
     var speechOutput = "There was an error"
     this.response.speak(speechOutput).listen(speechOutput);

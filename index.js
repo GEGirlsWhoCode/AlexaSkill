@@ -16,32 +16,35 @@ exports.handler = function (event, context, callback) {
 //List of Alexa handlers
 var handlers = {
   'LaunchRequest': function () {
+    var intent_context = this
     console.log("inside of LaunchRequest");
-    var speech0utput = "Hello welcome to your skill"
-    this.response.speak(speech0utput).listen(speech0utput);
-    this.emit(':responseReady');
+    var speechOutput = "Hello welcome to your skill"
+    intent_context.response.speak(speechOutput).listen(speechOutput);
+    intent_context.emit(':responseReady');
   },
 
   //Entering our custom intent
   //Task 1: Replace <your-intent> with the intent you created through Alexa
-  'GetData': function () {
+  'GetSong': function () {
+    var intent_context = this
     console.log("inside GetData")
-    var speech0utput = returnFact()
-    this.response.speak(speech0utput).listen(speech0utput);
-    this.emit(':responseReady');
+    var speechOutput = returnFact()
+    intent_context.response.speak(speechOutput).listen(speechOutput);
+    intent_context.emit(':responseReady');
 },
 
   'Unhandled': function (){
+    var intent_context = this
     console.log("inside of unhandled");
-    var speech0utput = "There was a problem"
-    this.response.speak(speech0utput).listen(speech0utput);
-    this.emit(':responseReady');
+    var speechOutput = "There was a problem"
+    intent_context.response.speak(speechOutput).listen(speechPutput);
+    intent_context.emit(':responseReady');
 
   }
 };
 
-var returnFact = function() {
-  console.log("inside returnFact")
-  return "You've reached the returnFact function!"
+var returnSong = function() {
+  console.log("inside returnSong")
+  return "You've reached the returnSong function!"
 
 }

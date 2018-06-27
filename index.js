@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
   var skill = alexa.handler(event, context);
 
 //Task 1: Add your app ID from Alexa
-  skill.appId = 'amzn1.ask.skill.9b1b227b-32be-47c3-8078-b3a48b8c3b57';
+  skill.appId = '<your app id>';
   skill.registerHandlers(handlers);
   skill.execute();
 };

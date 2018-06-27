@@ -29,8 +29,7 @@ In this task, we'll add the custom app ID that was generated on the Amazon Devel
 5. Link the Alexa skill to the service using the App Id ARN.  
 6. Save and build the model.
 
-Next, find the two places in the code where you need put this information.
-Take the app id that we copied from the Alexa Developer console and link it to the code.  
+Next, take the app id that we copied from the Alexa Developer console and link it to the code.  
 
 ### Task 2
 In this task, we'll hard-code response messages that Alexa would say to a user if the user were to try to invoke the Skill. These messages are just filler for now - we'll use these messages to verify all the Alexa handlers are being correctly invoked.
@@ -51,20 +50,21 @@ Alright, at this point the Alexa skill should greet you when you invoke it and s
 
 Create the `returnFact` function:
 ```
-  'GetData': function () {
-    console.log("inside custom intent")
-    var speech0utput = returnFact()
-    this.response.speak(speech0utput).listen(speech0utput);
-    this.emit(':responseReady');
-  },
+var returnFact = function() {
+  console.log("inside get data")
+  return "another fact!"
+}
 ```
 
 Your `GetData` handler should look like this:
 ```
-var returnFact = function() {
-  console.log("inside returnFact")
-  return "another fact!"
-}
+  'GetData': function () {
+    var intent_context = this
+    console.log("inside custom intent")
+    var speech0utput = returnFact()
+    intent_context.response.speak(speech0utput).listen(speech0utput);
+    intent_context.emit(':responseReady');
+  },
 ```
 
 ### Task 4
@@ -73,14 +73,14 @@ The last step! Let's make an API call. Instead of returning hard-coded speech ou
 For this, we'll make an http request. Just like entering a URL into your browser's search bar returns the information necessary to render a webpage, accessing a URL through your program can also retrieve information. Replacing the hard-coded data with an http request will take two steps:
 
 1. Constructing a promise
-A *promise* is an object that represents either the completion or failure of an operation. This is a powerful concept in web development - it allows your programs to multitask that allows your program to multitask. Say you were sitting at your computer waiting for a webpage to load, but it was incredibly slow and was taking 30 seconds or more... you wouldn't just sit there staring at the screen, you would probably start doing something else! Your programs can do the same thing by using promises - your program doesn't need to stop everything it's doing just to wait for data to return. Instead it can continue operating other instructions and, once data does get returned, pick up where it left off.
+A *promise* is an object that represents either the completion or failure of an operation. This is a powerful concept in web development - you could think of this as allowing your programs to multitask. Say you were sitting at your computer waiting for a webpage to load, but it was incredibly slow and was taking 30 seconds or more... you wouldn't just sit there staring at the screen, you would probably start doing something else! Your programs can do the same thing by using promises - your program doesn't need to stop everything it's doing just to wait for data to return. Instead it can continue operating other instructions and, once data does get returned, pick up where it left off.
 
-To construct your promise, add a function called `getData` after your handlers function. Inside the function, create a vaariable named `url` that contains the url as a string:
+To construct your promise, add a function called `returnFact` after your handlers function. Inside the function, create a vaariable named `url` that contains the url as a string:
 
 ```
-var getData = function() {
+var returnFact = function() {
 
-  var url = "https://api.nasa.gov/planetary/apod?api_key=R5qhAo9JxPvanhFNKIJz1ppc7Ll6paPsEP40atAs"
+  var url = "https://itunes.apple.com/search?term=maroon+5&limit=1"
 
 }
 ```
@@ -88,8 +88,8 @@ var getData = function() {
 Then return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) object:
 
 ```
-var getData = function() {
-  var url = "https://api.nasa.gov/planetary/apod?api_key=R5qhAo9JxPvanhFNKIJz1ppc7Ll6paPsEP40atAs"
+var returnFact = function() {
+  var url = "https://itunes.apple.com/search?term=maroon+5&limit=1"
 
   // A promise is an object that *may* produce a single value sometime in the future
   return new Promise(function(resolve, reject) {});
@@ -99,8 +99,8 @@ var getData = function() {
 Finally, construct the promise object. Getting data from the url using the `request.get()` function to handle the case where the data is returned correctly and the case where an error is returned instead. When you're done, your function should look like this:
 
 ```
-var getData = function() {
-  var url = "https://api.nasa.gov/planetary/apod?api_key=R5qhAo9JxPvanhFNKIJz1ppc7Ll6paPsEP40atAs"
+var returnFact = function() {
+  var url = "https://itunes.apple.com/search?term=maroon+5&limit=1"
 
   return new Promise(function(resolve, reject) {
     // A promise is an object that *may* produce a single value sometime in the future
@@ -131,7 +131,7 @@ Note that the `then` function takes two functions as arguments - the first funct
 
 ```
 getData().then(function(body) {
-  var speechOutput = body.explanation;
+  var speechOutput = body.resultCount[0].trackName;
   intent_context.response.speak(speechOutput).listen(speechOutput);
   intent_context.emit(':responseReady');
 }, function(error) {

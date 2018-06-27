@@ -1,6 +1,6 @@
 'use strict';
 //Required node packages
-var alexa = require('./node_modules/alexa-sdk');
+var alexa = require('alexa-sdk');
 var request = require('request');
 
 //this is the handler, when the lambda is invoked, this is what is called

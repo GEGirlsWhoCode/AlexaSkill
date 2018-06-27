@@ -16,18 +16,20 @@ exports.handler = function (event, context, callback) {
 //List of Alexa handlers
 var handlers = {
   'LaunchRequest': function () {
+    var intent_context = this
     console.log("inside of LaunchRequest");
   },
 
   //Entering our custom intent
   //Task 1: Replace <your-intent> with the intent you created through Alexa
   'GetSong': function () {
-    var intent_context= this
+    var intent_context = this
     console.log("inside custom intent")
 
 },
 
   'Unhandled': function (){
+    var intent_context = this
     console.log("inside of unhandled");
 
   }

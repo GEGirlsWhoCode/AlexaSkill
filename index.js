@@ -41,7 +41,7 @@ var handlers = {
 };
 
 var returnFact = function() {
-  console.log("inside get data")
+  console.log("inside returnFact")
   return "You've reached the returnFact function!"
 
 }

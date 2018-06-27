@@ -25,7 +25,7 @@ var handlers = {
   //Entering our custom intent
   'GetData': function () {
     var intent_context = this
-    console.log("inside custom intent")
+    console.log("inside GetData")
     var speechOutput =  "Inside of GetData"
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');

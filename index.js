@@ -24,7 +24,7 @@ var handlers = {
   //Entering our custom intent
   'GetSong': function () {
     var intent_context = this
-    console.log("inside custom intent")
+    console.log("inside getSong")
     //Task 2: Write the intent message here. For now, this will be a hard-coded string that she will respond back to us with.
 
 },

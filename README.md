@@ -15,7 +15,7 @@ We'll be using a zip file to deploy this app - use this command in your terminal
 `zip -r MyAlexaApp.zip index.js node_modules`
 
 ### Windows:
-right click --> send to --> Compressed (zipped) folder
+select index.js and node_modules file --> right click --> send to --> Compressed (zipped) folder
 
 ## Tasks
 After completing the prerequisites, follow the steps below to implement your Alexa Fact-Finding Skill!

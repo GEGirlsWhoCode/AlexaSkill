@@ -1,7 +1,7 @@
 # GirlsWhoCode
 Creating an Alexa fact-finding skill. This project walks through implementing an Alexa skill that makes an API call.
 
-## Prerequisites
+## Pre Work
 To implement this skill, we will start by:
  
  1. Created the skill on the [Amazon Developer Portal](https://developer.amazon.com/alexa-skills-kit?&sc_channel=SEM&sc_category=Paid&sc_content=Skill_Related&sc_funnel=Visit&sc_campaign=Evergreen&sc_segment=Devs&sc_publisher=GO&sc_country=US&sc_trackingcode=SEM01&sc_place=&sc_detail=234231114424&sc_keyword=developement%20amazon&gclid=Cj0KCQjwu_jYBRD8ARIsAC3EGCIZfB9RCmCvX1ZvAs_mB2buWNOxl7_DpZ5AGuAVT9hmTeZHnShtiRUaAhRoEALw_wcB)

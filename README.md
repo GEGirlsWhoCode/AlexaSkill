@@ -61,7 +61,7 @@ Your `GetSong` handler should look like this:
   'GetSong': function () {
     var intent_context = this
     console.log("inside getSong");
-    var speechOutput = returnFact();
+    var speechOutput = returnSong();
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');
   },

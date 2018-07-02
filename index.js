@@ -33,7 +33,7 @@ var handlers = {
       intent_context.response.speak(speechOutput).listen(speechOutput);
       intent_context.emit(':responseReady');
     },function (error) {
-      console.log("You have an error in GetData")
+      console.log("You have an error in GetSong")
       var speechOutput = "Sorry your API returned an error"
       intent_context.response.speak(speechOutput).listen(speechOutput);
       intent_context.emit(':responseReady');

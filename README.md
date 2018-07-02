@@ -51,8 +51,8 @@ Alright, at this point the Alexa skill should greet you when you invoke it and s
 Create the `returnSong` function:
 ```
 var returnSong = function() {
-  console.log("inside returnSong")
-  return "another fact!"
+  console.log("inside returnSong");
+  return "another song!";
 }
 ```
 
@@ -60,8 +60,8 @@ Your `GetSong` handler should look like this:
 ```
   'GetSong': function () {
     var intent_context = this
-    console.log("inside getSong")
-    var speechOutput = returnFact()
+    console.log("inside getSong");
+    var speechOutput = returnFact();
     intent_context.response.speak(speechOutput).listen(speechOutput);
     intent_context.emit(':responseReady');
   },
